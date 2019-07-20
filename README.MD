@@ -17,3 +17,4 @@ Push container
 
 ` docker push nimbler/geostresser`
 
+Arguments optional: SERVER:String TOPIC:String THREADS:INT
