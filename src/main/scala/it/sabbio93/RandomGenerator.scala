@@ -25,7 +25,7 @@ object RandomGenerator {
     val executor = Executors.newFixedThreadPool(threads)
     executor.submit(new Producer(deltaLat, deltaLong, baseLat, baseLong, props, topic))
 
-  }//main
+  }//maingit
 }//RandomGenerator
 
 class Producer(deltaLat: Double, deltaDouble: Double, baseLat: Double, baseDouble: Double, props: java.util.Properties, topic: String) extends Runnable {
@@ -34,7 +34,7 @@ class Producer(deltaLat: Double, deltaDouble: Double, baseLat: Double, baseDoubl
 
     val producer = new KafkaProducer[String, String](props)
     val random= new scala.util.Random()
-    while (true)
+    while (!Thread.currentThread().isInterrupted)
     {
       val lat = ((random.nextFloat() * 10) % deltaLat) + baseLat
       val long = ((random.nextFloat() * 10) % deltaDouble) + baseDouble
